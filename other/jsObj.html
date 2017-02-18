@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			
+			var o1 = {
+				name : 'o1',
+				age : 23,
+				text : '你这个ABC'
+			};
+
+			function o3(){
+				this.name = 'o3',
+				this.age = 23,
+				this.text = '你这个ABC'
+			}
+
+			var o3 = new o3();
+
+			var o2 = {};
+
+			o2.prototype = {
+				name : 'o2',
+				age : 22,
+				text : '法克鱿'
+			};
+
+			//o2.__proto__ = o1; 继承
+
+			//o2.constructor = o1;//constructor
+
+			//o2.constructor = o3;
+
+			//console.log(o2.name);
+
+
+
+
+			//知识点1  var o4 = function(){}; 跟 function o6(){}; 做为类的区别，function o6(){}的原型要写在实例前面，不然写在原型前的实例都没该原型
+			var o4 = function(){};
+
+			var o5 = new o4();
+
+			o4.prototype = {
+				name : 'o4',
+				age : 28,
+				text : '三碗猪脚'
+			}
+
+			//console.log(o4.name);
+
+
+			function o6(){};
+
+			var o7 = new o6();
+
+			o6.prototype = {
+				name : 'o4',
+				age : 28,
+				text : '三碗猪脚'
+			}
+
+			var o8 = new o6();
+
+
+			/*console.log(o7.name);
+			console.log(o8.name);*/
+
+			//知识点1 end
+
+
+			//知识点2  构造器是什么就实例化什么对象结构
+
+			function a9(){};
+
+			function a10(){
+				this.name = "a11";
+				this.age = 29;
+				this.texs = 'hollow word';
+			}
+
+			a9.prototype.constructor = a10;
+
+			console.log(a9);
+
+			var o11 = new a9();
+
+			console.log(o11);
+
+
+			//知识点2 end
+
+
+
+		</script>
+	</body>
+</html>
